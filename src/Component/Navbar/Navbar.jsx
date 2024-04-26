@@ -5,9 +5,15 @@ import { AuthContext } from "../../AuthProvider/AutthProvider";
 import { IoIosLogOut } from "react-icons/io";
 
 const Navbar = () => {
-  const {users} = useContext(AuthContext);
+  const {users, logOutUser} = useContext(AuthContext);
   const handleLogOut = () =>{
-    console.log('ok');
+    logOutUser()
+    .then(result=>{
+      console.log(result);
+    })
+    .catch(error => {
+      console.error(error);
+    })
   }
 
     const navLink = <>

@@ -25,14 +25,17 @@ const AddSpot = () => {
               <label className="label">
                 <span className="label-text text-base">Country Name</span>
               </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  name="quantity"
-                  placeholder="country name"
-                  className="input input-bordered w-full"
-                />
-              </label>
+              <select className="select select-bordered w-full">
+                <option disabled selected>
+                  Select Country
+                </option>
+                <option>Bangladesh</option>
+                <option>Thailand</option>
+                <option>Indonesia</option>
+                <option>Malaysia</option>
+                <option>Vietnam</option>
+                <option>Cambodia</option>
+              </select>
             </div>
           </div>
           <div className="md:flex mb-8">
@@ -84,7 +87,7 @@ const AddSpot = () => {
               </label>
               <select className="select select-bordered w-full ">
                 <option disabled selected>
-                seasonality
+                  seasonality
                 </option>
                 <option>summer</option>
                 <option>winter</option>
@@ -99,7 +102,7 @@ const AddSpot = () => {
               </label>
               <select className="select select-bordered w-full ">
                 <option disabled selected>
-                Travel Time
+                  Travel Time
                 </option>
                 <option>3 days</option>
                 <option>7 days</option>
@@ -108,7 +111,9 @@ const AddSpot = () => {
             </div>
             <div className="form-control md:w-1/2 ml-4">
               <label className="label">
-                <span className="label-text text-base">Tota Visitors Per Year</span>
+                <span className="label-text text-base">
+                  Tota Visitors Per Year
+                </span>
               </label>
               <label className="input-group">
                 <input
