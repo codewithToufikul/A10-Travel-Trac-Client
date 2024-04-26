@@ -11,6 +11,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AllSpot from './Pages/AllSpot/AllSpot';
 import AddSpot from './Pages/AddSpot/AddSpot';
+import AutthProvider from './AuthProvider/AutthProvider';
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,9 @@ const router = createBrowserRouter([
       },
       {
         path: "addspot",
-        element: <AddSpot></AddSpot>
+        element: <AddSpot>
+
+        </AddSpot>
       }
     ]
   },
@@ -44,6 +47,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AutthProvider>
     <RouterProvider router={router} />
+    </AutthProvider>
   </React.StrictMode>,
 )

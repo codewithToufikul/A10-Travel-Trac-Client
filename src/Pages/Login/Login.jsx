@@ -1,21 +1,38 @@
 import { FaGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AutthProvider";
+import { useContext } from "react";
 
 const Login = () => {
+    const {loginUser} = useContext(AuthContext);
+    const handleLoginUser = event =>{
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        loginUser(email, password)
+        .then(result=>{
+            console.log(result.user);
+        })
+        .catch(error=>{
+            console.error(error);
+        })
+    }
   return (
     <div className="max-w-[1440px] flex justify-center mx-auto">
       <div className=" mt-8 w-[800px] m-auto  p-10 lg:mt-20 rounded-md bg-gray-100">
         <h1 className=" text-4xl text-center font-semibold ">
           Login Your <span className=" text-blue-400">Account</span>
         </h1>
-        <form className="card-body ">
+        <form onSubmit={handleLoginUser} className="card-body ">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
           <input
             type="email"
+            name="email"
             placeholder="email"
             className="input input-bordered"
             required
@@ -27,6 +44,7 @@ const Login = () => {
           </label>
           <input
             type="password"
+            name="password"
             placeholder="password"
             className="input input-bordered"
             required

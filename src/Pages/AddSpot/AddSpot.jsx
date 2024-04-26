@@ -1,7 +1,7 @@
 const AddSpot = () => {
   return (
     <div className="max-w-[1440px] mx-auto">
-      <div className="bg-blue-50 px-24 py-16 ">
+      <div className="bg-blue-50 px-24 py-16 rounded-2xl">
         <h2 className="text-4xl font-extrabold text-center mb-5">
           Add a <span className=" text-blue-400">Tourist</span> Spot
         </h2>
