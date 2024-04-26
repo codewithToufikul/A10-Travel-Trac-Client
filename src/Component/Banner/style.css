@@ -1,0 +1,56 @@
+.swiper-slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4;
+    border-radius: 20px;
+  }
+  
+  #slide2{
+    background-image: url('https://i.ibb.co/7bBkC6k/keith-luke-s-PU2kz-PIf28-unsplash-1.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+  }
+  #slide3{
+    background-image: url('https://i.ibb.co/dM2PwnD/sakil-chowdhury-HDk-Asv-On-DME-unsplash-1.jpg');
+    background-size: cover;
+    background-position: bottom;
+    border-radius: 20px;
+  }
+  #slide1{
+    background-image: url('https://i.ibb.co/fCS86yT/marina-lobato-k-G7p-OXb-Bf-Ns-unsplash.jpg');
+    background-size: cover;
+    background-position: bottom;
+    border-radius: 20px;
+  }
+
+  
+  @media screen and (max-width: 768px){
+    #slide1{
+        width: 100%;
+        height: 500px;
+        background-image: url('https://i.ibb.co/fCS86yT/marina-lobato-k-G7p-OXb-Bf-Ns-unsplash.jpg');
+        background-size: cover;
+        background-position: bottom;
+
+      }
+      #slide2{
+        width: 100%;
+        height: 500px;
+        background-image: url('https://i.ibb.co/3SnZXMH/tahsin-islam-gc8-IPK97-h-E-unsplash-1-1.jpg');
+        background-size: cover;
+        background-position: bottom;
+      }
+      #slide3{
+        width: 100%;
+        height: 500px;
+        background-image: url('https://i.ibb.co/TPdC22L/atik-chowdhury-v-L6mbb-HZk-I-unsplash.jpg');
+        background-size: cover;
+        background-position: bottom;
+      }
+  }
