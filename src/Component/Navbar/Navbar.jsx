@@ -1,7 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo.png'
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AutthProvider";
+import { IoIosLogOut } from "react-icons/io";
 
 const Navbar = () => {
+  const {users} = useContext(AuthContext);
+  const handleLogOut = () =>{
+    console.log('ok');
+  }
+
     const navLink = <>
     <li><NavLink className={({ isActive, isPending }) =>
                   isActive
@@ -68,9 +76,20 @@ const Navbar = () => {
         {navLink}
         </ul>
       </div>
-      <div className="navbar-end flex md:gap-4">
+      <div className="navbar-end">
+        {
+          users ? <div className="dropdown z-40 dropdown-hover">
+          <div tabIndex={0} role="button" className=" w-16 border-4 p-1 rounded-full  border-blue-400 m-1"><img src={users.photoURL} alt="" /></div>
+          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li ><a className="text-xl font-semibold text-blue-400">{users.displayName}</a></li>
+            <li onClick={handleLogOut} ><a className=" text-lg font-semibold text-red-500">LogOut <IoIosLogOut /></a> </li>
+          </ul>
+        </div> : <div className="flex md:gap-4">
         <Link to="/login" className=" text-lg font-semibold btn btn-ghost hover:bg-white hover:border-2 hover:border-blue-400 ">Login</Link>
         <Link to="/register" className="btn bg-blue-400 text-white text-lg">Register</Link>
+        </div>
+        }
+        
       </div>
     </div>
   );
