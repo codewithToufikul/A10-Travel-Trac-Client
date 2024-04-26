@@ -63,14 +63,14 @@ const Navbar = () => {
         <img className=" w-28 md:w-[200px]" src={logo} alt="" />
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal flex items-center px-1">
+        <ul className=" gap-5 flex items-center px-1">
           
         {navLink}
         </ul>
       </div>
       <div className="navbar-end flex md:gap-4">
         <Link to="/login" className=" text-lg font-semibold btn btn-ghost hover:bg-white hover:border-2 hover:border-blue-400 ">Login</Link>
-        <Link className="btn bg-blue-400 text-white text-lg">Register</Link>
+        <Link to="/register" className="btn bg-blue-400 text-white text-lg">Register</Link>
       </div>
     </div>
   );
