@@ -42,7 +42,7 @@ const Login = () => {
                 <button className="btn hover:shadow-2xl bg-transparent hover:bg-transparent hover:text-black btn-outline btn-wide text-4xl px-5"><FaGithub /> <span className=" text-xl">GitHub</span></button>
             </div>
         </div>
-        <h2 className="text-lg mt-10 font-medium">Don't have an account? <Link  to="/register" className="text-blue-500 font-semibold">Register here...</Link></h2>
+        <h2 className="text-lg mt-10 font-medium">Don`t have an account? <Link  to="/register" className="text-blue-500 font-semibold">Register here...</Link></h2>
 
       </form>
       </div>

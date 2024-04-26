@@ -16,21 +16,21 @@ const Navbar = () => {
                     : isPending
                     ? "pending"
                     : " text-base mr-2  font-semibold"
-                } to="/blog"> All Tourists Spot</NavLink></li> 
+                } to="/allspot"> All Tourists Spot</NavLink></li> 
     <li><NavLink className={({ isActive, isPending }) =>
                   isActive
                     ? " text-blue-500 font-bold text-base underline"
                     : isPending
                     ? "pending"
                     : " text-base mr-2  font-semibold"
-                } to="/blog">Add Tourists Spot</NavLink></li> 
+                } to="/addspot">Add Tourists Spot</NavLink></li> 
     <li><NavLink className={({ isActive, isPending }) =>
                   isActive
                     ? " text-blue-500 font-bold text-base underline"
                     : isPending
                     ? "pending"
                     : " text-base mr-2  font-semibold"
-                } to="/blog">My List</NavLink></li> 
+                } to="/">My List</NavLink></li> 
     
 </>
   return (

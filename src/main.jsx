@@ -9,6 +9,8 @@ import Root from './Component/Root/Root';
 import Home from './Component/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import AllSpot from './Pages/AllSpot/AllSpot';
+import AddSpot from './Pages/AddSpot/AddSpot';
 
 
 const router = createBrowserRouter([
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/allspot",
+        element: <AllSpot></AllSpot>
+      },
+      {
+        path: "addspot",
+        element: <AddSpot></AddSpot>
       }
     ]
   },
