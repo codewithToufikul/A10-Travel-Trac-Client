@@ -8,7 +8,14 @@ const AllSpot = () => {
     const spot = useLoaderData();
     useEffect(()=>{ 
     setSpots(spot)
-    },[spot])
+    },[])
+    const handleAverageCost = () =>{
+        const sortSpot = [...spot].sort((a, b)=> a.cost-b.cost)
+        setSpots(sortSpot)
+    }
+    const handleAll = () =>{
+        setSpots(spot);
+    }
   return (
     <div>
       <div
@@ -28,7 +35,10 @@ const AllSpot = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-[1440px] mx-auto mt-10">
+      <div className="max-w-[1440px] mx-auto mt-12">
+        <div className=" mb-10">
+            <h1 className=" text-5xl  text-center font-pacifico">Tourist <span className="text-blue-300">Spot</span></h1>
+        </div>
         <div className=" flex justify-between items-center px-4">
           <h1 className=" text-4xl">{spots.length} Tour Spot found</h1>
           <div className="dropdown dropdown-end">
@@ -39,14 +49,17 @@ const AllSpot = () => {
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Average Cost $</a>
+              <li onClick={handleAll}>
+                <a className=" text-lg">All</a>
+              </li>
+              <li onClick={handleAverageCost}>
+                <a className=" text-lg">Average Cost</a>
               </li>
             </ul>
           </div>
         </div>
         <div className="divider"></div> 
-        <div>-
+        <div className=" grid lg: grid-cols-3 gap-10 mx-5">
             {
                 spots.length > 0 ? spots.map(spot=> <Spot key={spot.li_id} spot={spot}></Spot>) : <h1 className=" text-5xl text-center text-red-400">No Spot For Tour !</h1>
             }

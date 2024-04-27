@@ -12,6 +12,7 @@ import Register from './Pages/Register/Register';
 import AllSpot from './Pages/AllSpot/AllSpot';
 import AddSpot from './Pages/AddSpot/AddSpot';
 import AutthProvider from './AuthProvider/AutthProvider';
+import MySpotList from './Pages/MySpotList/MySpotList';
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
         element: <AddSpot>
 
         </AddSpot>
+      },
+      {
+        path: "/mylist",
+        element: <MySpotList></MySpotList>,
+        loader: () => fetch('http://localhost:5000/spots'),
       }
     ]
   },

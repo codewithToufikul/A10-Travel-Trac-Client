@@ -46,7 +46,7 @@ const Navbar = () => {
                     : isPending
                     ? "pending"
                     : " text-base mr-2  font-semibold"
-                } to="/">My List</NavLink></li> 
+                } to="/mylist">My List</NavLink></li> 
     
 </>
   return (
