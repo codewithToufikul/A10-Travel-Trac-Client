@@ -8,7 +8,7 @@ import { FaInstagramSquare } from 'react-icons/fa';
 const Footer = () => {
   return (
     <div className="bg-gray-200 mt-28">
-        <footer className="footer md:pl-20 md:pt-20 p-5  max-w-[1440px] mx-auto text-base-content">
+        <footer className=" grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-4  md:pl-20 md:pt-20 p-5  max-w-[1440px] mx-auto text-base-content">
       <nav className=' max-w-[300px]'>
         <img className='w-[250px]' src={logo} alt="" />
         <p className=' text-base mt-4'>Explore the World with Your Company Name. Your trusted partner in unforgettable travel experiences. </p>

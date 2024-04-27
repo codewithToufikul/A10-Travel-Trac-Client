@@ -3,16 +3,18 @@ import logo from '../../assets/logo.png'
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AutthProvider";
 import { IoIosLogOut } from "react-icons/io";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
   const {users, logOutUser} = useContext(AuthContext);
   const handleLogOut = () =>{
     logOutUser()
-    .then(result=>{
-      console.log(result);
+    .then(()=>{
+      toast.success('User Successfully LogOut')
     })
     .catch(error => {
       console.error(error);
+      toast.error(error.message)
     })
   }
 
@@ -48,7 +50,7 @@ const Navbar = () => {
     
 </>
   return (
-    <div className="navbar bg-base-100 max-w-[1440px] mx-auto py-6">
+    <div className="navbar justify-between bg-base-100 max-w-[1440px] mx-auto py-4">
       <div className="navbar-start md:w-[20%]">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -85,8 +87,8 @@ const Navbar = () => {
       <div className="navbar-end">
         {
           users ? <div className="dropdown z-40 dropdown-hover">
-          <div tabIndex={0} role="button" className=" w-16 border-4 p-1 rounded-full  border-blue-400 m-1"><img src={users.photoURL} alt="" /></div>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+          <div tabIndex={0} role="button" className=" md:w-16 w-12 md:h-16 h-12 border-2 md:border-4 md:p-1 rounded-full  border-blue-400 m-1"><img className="w-full rounded-full h-full" src={users.photoURL} alt="" /></div>
+          <ul tabIndex={0} className="dropdown-content  top-14 right-0 md:top-12 md:right-0 z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
             <li ><a className="text-xl font-semibold text-blue-400">{users.displayName}</a></li>
             <li onClick={handleLogOut} ><a className=" text-lg font-semibold text-red-500">LogOut <IoIosLogOut /></a> </li>
           </ul>
@@ -97,6 +99,7 @@ const Navbar = () => {
         }
         
       </div>
+      <Toaster />
     </div>
   );
 };

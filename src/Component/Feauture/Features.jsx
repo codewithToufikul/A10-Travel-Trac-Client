@@ -5,14 +5,14 @@ import { HiGiftTop } from "react-icons/hi2";
 import { MdAddAPhoto } from "react-icons/md";
 const Features = () => {
   return (
-    <div className="flex justify-center md:flex-row flex-col gap-10 p-24 bg-blue-50 items-center">
+    <div className="flex justify-center lg:flex-row flex-col gap-10 lg:p-24 p-9 bg-blue-50 items-center">
       <div className=" ">
-        <img className="w-[600px] rounded-2xl" src={travel} alt="" />
+        <img className="md:w-[600px] rounded-2xl w-full" src={travel} alt="" />
       </div>
       <div>
-        <div className=" px-5 space-y-3 mb-5"><h1 className="text-4xl font-semibold ">Best Travel Partners</h1>
-        <p className=" text-lg">
-          Explore with our trusted travel partners for unforgettable journeys. <br />
+        <div className=" px-5 space-y-3 mb-5"><h1 className="text-3xl md:text-4xl font-semibold ">Best Travel Partners</h1>
+        <p className=" md:text-lg">
+          Explore with our trusted travel partners for unforgettable journeys. <br className=" md:block hidden" />
           Your adventure begins here.
         </p></div>
         <div className=" grid gap-5 md:grid-cols-2">

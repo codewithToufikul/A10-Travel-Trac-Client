@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AutthProvider";
 import { useContext } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
     const {loginUser, googleLogin, githubLogin} = useContext(AuthContext);
@@ -12,28 +13,31 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         loginUser(email, password)
-        .then(result=>{
-            console.log(result.user);
+        .then(()=>{
+          toast.success('Successfully Login!')
         })
         .catch(error=>{
+          toast.error(error.message)
             console.error(error);
         })
     }
     const handleGoogleLogin = () =>{
         googleLogin()
-        .then(result=>{
-            console.log(result.user);
+        .then(()=>{
+          toast.success('Successfully Login!')
         })
         .then(error=>{
+          toast.error(error.message)
             console.error(error);
         })
     }
     const gandleGithubLogin= () =>{
         githubLogin()
-        .then(result=>{
-            console.log(result.user);
+        .then(()=>{
+          toast.success('Successfully Login!')
         })
         .then(error=>{
+          toast.error(error.message)
             console.error(error);
         })
     }
@@ -83,7 +87,7 @@ const Login = () => {
         </div>
         <h2 className="text-lg mt-10 font-medium">Don`t have an account? <Link  to="/register" className="text-blue-500 font-semibold">Register here...</Link></h2>
       </div>
-      
+      <Toaster />
     </div>
   );
 };
