@@ -1,7 +1,9 @@
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const UpdateSpot = () => {
-    const spot = useLoaderData()
+    const spot = useLoaderData();
+    const {_id,description,country, photo, spotName, time, location, visitors,seasonality, cost} = spot;
     const handleUpdateSpot =event =>{
         event.preventDefault()
     const form = event.target;
@@ -25,21 +27,24 @@ const UpdateSpot = () => {
       visitors: visitors,
       photo: photo,
     }
-    fetch(`http://localhost:3000/users/${spot._id}`,{
-        method: "PATCH",
+    fetch(`http://localhost:5000/spots/${_id}`,{
+        method: "PUT",
         headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify(touristSpot)
     })
     .then(res => res.json())
-    .then(data=> console.log(data))
+    .then(data=> {
+        toast.success('update success')
+        console.log(data)
+    })
 }
     return (
         <div className=" max-w-[1440px] mx-auto">
-            <div className="bg-blue-50 lg:px-24 px-8 py-16 rounded-2xl">
+            <div className="bg-green-50 lg:px-24 px-8 py-16 rounded-2xl">
         <h2 className="text-4xl font-extrabold text-center mb-5">
-          Add a <span className=" text-blue-400">Tourist</span> Spot
+          Update Your<span className=" text-blue-400">Tourist</span> Spot
         </h2>
         <form onSubmit={handleUpdateSpot}>
 
@@ -53,7 +58,7 @@ const UpdateSpot = () => {
                   type="text"
                   name="spotName"
                   required
-                  placeholder="tourist spot name"
+                  defaultValue={spotName}
                   className="input input-bordered w-full"
                 />
               </label>
@@ -70,7 +75,7 @@ const UpdateSpot = () => {
                   type="text"
                   name="location"
                   required
-                  placeholder="location"
+                  defaultValue={location}
                   className="input input-bordered w-full"
                 />
               </label>
@@ -79,7 +84,7 @@ const UpdateSpot = () => {
               <label className="label">
                 <span className="label-text text-base">Country Name</span>
               </label>
-              <select name="country" required className="select select-bordered w-full">
+              <select name="country" defaultValue={country} required className="select select-bordered w-full">
                 <option disabled selected>
                   Select Country
                 </option>
@@ -103,7 +108,7 @@ const UpdateSpot = () => {
                   type="text"
                   name="cost"
                   required
-                  placeholder=" average cost"
+                  defaultValue={cost}
                   className="input input-bordered w-full"
                 />
               </label>
@@ -112,7 +117,7 @@ const UpdateSpot = () => {
               <label className="label">
                 <span className="label-text text-base">Seasonality</span>
               </label>
-              <select name="seasonality" required className="select select-bordered w-full ">
+              <select name="seasonality" defaultValue={seasonality} required className="select select-bordered w-full ">
                 <option disabled selected>
                   seasonality
                 </option>
@@ -127,7 +132,7 @@ const UpdateSpot = () => {
               <label className="label">
                 <span className="label-text text-base">Travel Time</span>
               </label>
-              <select name="time" required className="select select-bordered w-full ">
+              <select name="time" required defaultValue={time} className="select select-bordered w-full ">
                 <option disabled selected>
                   Travel Time
                 </option>
@@ -148,7 +153,7 @@ const UpdateSpot = () => {
                   type="text"
                   name="visitors"
                   required
-                  placeholder="visitors number"
+                  defaultValue={visitors}
                   className="input input-bordered w-full"
                 />
               </label>
@@ -164,7 +169,7 @@ const UpdateSpot = () => {
                   type="url"
                   name="photo"
                   required
-                  placeholder="photo url"
+                  defaultValue={photo}
                   className="input input-bordered w-full"
                 />
               </label>
@@ -179,13 +184,13 @@ const UpdateSpot = () => {
               type="text"
               required
               name="description"
-              placeholder="short description "
+              defaultValue={description}
                className="textarea textarea-bordered  w-full" ></textarea>
               </label>
             </div>
           <input
             type="submit"
-            value="Add Spot"
+            value="Update Spot"
             className="btn btn-block bg-blue-400 text-lg text-white"
           />
         </form>

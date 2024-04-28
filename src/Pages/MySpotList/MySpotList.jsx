@@ -38,9 +38,27 @@ const MySpotList = () => {
       </div>
       <div className=" max-w-[1440px] mx-auto mt-12 space-y-8">
         <h1 className=" text-4xl text-center  my-16 font-"><span className=" underline underline-offset-8">My Added </span><span className=" text-blue-400 font-pacifico">Tourist Spot</span></h1>
-        {mySpot.map((spot) => (
+        <div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        <th className=" text-2xl ">Spot Name</th>
+        <th className=" text-2xl ">Travel Time</th>
+        <th className=" text-2xl text-center">Visitors</th>
+        <th className=" text-2xl text-center">Average Cost</th>
+       
+        <th className=" text-2xl text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {mySpot.map((spot) => (
           <MySpot key={spot._id} spot={spot}></MySpot>
         ))}
+
+    </tbody>
+  </table>
+</div>
       </div>
     </div>
   );
