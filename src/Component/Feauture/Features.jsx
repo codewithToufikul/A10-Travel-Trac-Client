@@ -3,7 +3,6 @@ import travel from "../../assets/travel.jpg";
 import { FaPeopleRobbery } from "react-icons/fa6";
 import { HiGiftTop } from "react-icons/hi2";
 import { MdAddAPhoto } from "react-icons/md";
-import { Typewriter } from "react-simple-typewriter";
 import { Fade, JackInTheBox,} from "react-awesome-reveal";
 const Features = () => {
   return (
@@ -15,15 +14,7 @@ const Features = () => {
       </Fade>
       <div>
         <div className=" px-5 space-y-3 mb-5"><h1 className="text-3xl md:text-4xl font-semibold ">
-        <Typewriter
-            words={['Best Travel Partners',]}
-            loop={1000000000000}
-            cursor
-            cursorStyle='...'
-            typeSpeed={50}
-            deleteSpeed={50}
-            delaySpeed={1000}
-          />
+          Your Best Travel Partner
         </h1>
         <p className=" md:text-lg">
           Explore with our trusted travel partners for unforgettable journeys. <br className=" md:block hidden" />
