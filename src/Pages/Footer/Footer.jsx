@@ -19,7 +19,7 @@ const Footer = () => {
             <a className=' text-2xl cursor-pointer'><FaInstagramSquare /></a>
         </div>
       </nav>
-      <nav>
+      <nav className=' flex flex-col'>
         <h6 className="footer-title text-xl font-bold">About us</h6>
         <a className="link link-hover text-lg">Our Story</a>
         <a className="link link-hover text-lg">Travel Blog & Tips</a>

@@ -3,13 +3,11 @@ import { IoMdTime } from "react-icons/io";
 import { TfiEye } from "react-icons/tfi";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { Link } from "react-router-dom";
-
-// eslint-disable-next-line react/prop-types
-const Spot = ({spot}) => {
-    // eslint-disable-next-line react/prop-types
+const HomeSpot = ({spot}) => {
     const {_id,photo, spotName, time, location, visitors,seasonality, cost} = spot;
-  return (
-    <Link>
+    return (
+        <div>
+            <Link>
     <div className="card card-compact bg-base-100 border-[1px] shadow-xl">
       <figure  className=" h-[250px]">
         <img
@@ -38,7 +36,8 @@ const Spot = ({spot}) => {
       </div>
     </div>
     </Link>
-  );
+        </div>
+    );
 };
 
-export default Spot;
+export default HomeSpot;
