@@ -3,19 +3,34 @@ import travel from "../../assets/travel.jpg";
 import { FaPeopleRobbery } from "react-icons/fa6";
 import { HiGiftTop } from "react-icons/hi2";
 import { MdAddAPhoto } from "react-icons/md";
+import { Typewriter } from "react-simple-typewriter";
+import { Fade, JackInTheBox,} from "react-awesome-reveal";
 const Features = () => {
   return (
     <div className="flex justify-center lg:flex-row flex-col gap-10 lg:p-24 p-9 bg-blue-50 items-center">
+      <Fade>
       <div className=" ">
         <img className="md:w-[600px] rounded-2xl w-full" src={travel} alt="" />
       </div>
+      </Fade>
       <div>
-        <div className=" px-5 space-y-3 mb-5"><h1 className="text-3xl md:text-4xl font-semibold ">Best Travel Partners</h1>
+        <div className=" px-5 space-y-3 mb-5"><h1 className="text-3xl md:text-4xl font-semibold ">
+        <Typewriter
+            words={['Best Travel Partners',]}
+            loop={1000000000000}
+            cursor
+            cursorStyle='...'
+            typeSpeed={50}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </h1>
         <p className=" md:text-lg">
           Explore with our trusted travel partners for unforgettable journeys. <br className=" md:block hidden" />
           Your adventure begins here.
         </p></div>
         <div className=" grid gap-5 md:grid-cols-2">
+          <JackInTheBox>
           <div className=" w-[350px] bg-base-100 shadow-xl">
             <div className="card-body">
               <p className=" text-4xl bg-red-400 w-fit p-2 rounded-full hover:shadow-red-400 hover:shadow-xl">
@@ -28,6 +43,8 @@ const Features = () => {
               </p>
             </div>
           </div>
+          </JackInTheBox>
+          <JackInTheBox>
           <div className=" w-[350px] bg-base-100 shadow-xl">
             <div className="card-body">
               <p className=" text-3xl bg-green-400 w-fit p-3 rounded-full hover:shadow-green-400 hover:shadow-xl">
@@ -39,6 +56,8 @@ const Features = () => {
               </p>
             </div>
           </div>
+          </JackInTheBox>
+          <JackInTheBox>
           <div className=" w-[350px] bg-base-100 shadow-xl">
             <div className="card-body">
               <p className=" text-4xl bg-yellow-400 w-fit p-2 rounded-full hover:shadow-yellow-400 hover:shadow-xl">
@@ -50,6 +69,8 @@ const Features = () => {
               </p>
             </div>
           </div>
+          </JackInTheBox>
+          <JackInTheBox>
           <div className=" w-[350px] bg-base-100 shadow-xl">
             <div className="card-body">
               <p className=" text-3xl bg-pink-400 w-fit p-3 rounded-full hover:shadow-red-400 hover:shadow-xl">
@@ -61,6 +82,7 @@ const Features = () => {
               </p>
             </div>
           </div>
+          </JackInTheBox>
         </div>
       </div>
     </div>

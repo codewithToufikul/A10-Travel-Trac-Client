@@ -10,7 +10,7 @@ const Spot = ({spot}) => {
     const {photo, spotName, time, location, visitors,seasonality, cost} = spot;
   return (
     <Link>
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div className="card card-compact bg-base-100 border-[1px] shadow-xl">
       <figure  className=" h-[250px]">
         <img
         className=" h-full w-full"
@@ -33,7 +33,7 @@ const Spot = ({spot}) => {
             <p className=" text-lg">Cost:</p>
             <h2 className=" text-3xl font-semibold">${cost}</h2>
             </div>
-          <button className="btn bg-blue-400 text-base text-white">Details</button>
+          <button className="btn bg-blue-400 text-base text-white"><Link to="/spotdetails">Details</Link></button>
         </div>
       </div>
     </div>

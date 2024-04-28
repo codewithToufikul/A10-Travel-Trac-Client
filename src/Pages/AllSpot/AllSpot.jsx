@@ -2,6 +2,7 @@ import { RiArrowUpDownLine } from "react-icons/ri";
 import { useLoaderData } from "react-router-dom";
 import Spot from "../Spot/Spot";
 import { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 const AllSpot = () => {
     const [spots, setSpots] = useState([])
@@ -30,7 +31,18 @@ const AllSpot = () => {
           <div className="max-w-xl">
             <h1 className="mb-5 text-6xl  font-bold">
               Choose Your Perfect{" "}
-              <span className=" text-blue-400">Destination</span>
+              <span className=" text-blue-400">
+
+              <Typewriter
+            words={['Destination',]}
+            loop={1000000000000}
+            cursor
+            cursorStyle='...'
+            typeSpeed={140}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+              </span>
             </h1>
           </div>
         </div>
