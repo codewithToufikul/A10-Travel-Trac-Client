@@ -9,9 +9,11 @@ const MySpot = ({ spot }) => {
     const {_id,photo, spotName,  location, seasonality, cost, description} = spot;
     // eslint-disable-next-line react/prop-types
     const sortDes = description.slice(0, 110)
-    const handleSpotUpdate = (id) =>{
-      console.log(id);
-    }
+    // const handleSpotUpdate = (id) =>{
+    //   fetch(`http://localhost:5000/spots/${id}`,{
+    //     method: 'PUT'
+    //   })
+    // }
   return (
     <div>
       <Link>
@@ -43,7 +45,7 @@ const MySpot = ({ spot }) => {
             <h2 className=" text-3xl font-semibold">${cost}</h2>
             </div>
             <div className=" flex justify-end gap-3 p-5">
-                <button onClick={()=>handleSpotUpdate(_id)} className=" btn bg-blue-400 text-lg text-white px-4">Update</button>
+                <Link to={`/updatespot/${_id}`} className=" btn bg-blue-400 text-lg text-white px-4">Update</Link>
                 <button className=" btn bg-red-500 text-lg text-white px-4">Delete</button>
             </div>
           </div>

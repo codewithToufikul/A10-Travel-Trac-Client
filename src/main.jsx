@@ -14,6 +14,7 @@ import AddSpot from './Pages/AddSpot/AddSpot';
 import AutthProvider from './AuthProvider/AutthProvider';
 import MySpotList from './Pages/MySpotList/MySpotList';
 import SpotDetails from './Pages/SpotDetails/SpotDetails';
+import UpdateSpot from './Pages/UpdateSpot/UpdateSpot';
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
       {
         path: "spotdetails",
         element: <SpotDetails></SpotDetails>
+      },
+      {
+        path: "/updatespot/:id",
+        element: <UpdateSpot></UpdateSpot>,
+        loader: ({params}) => fetch(`http://localhost:5000/spots/${params.id}`)
       }
     ]
   },
