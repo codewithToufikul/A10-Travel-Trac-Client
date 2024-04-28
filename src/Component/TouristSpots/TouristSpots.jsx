@@ -21,7 +21,7 @@ const TouristSpots = ({spots}) => {
             traveler.
           </p>
         </div>
-        <div className=" mt-10 grid gap-8 grid-cols-3">
+        <div className=" mt-10 md:grid-cols-2 grid-cols-1 grid gap-8 lg:grid-cols-3">
          {
             showingSpot.map(spot => <HomeSpot key={spot._id} spot={spot}></HomeSpot>)
          }
