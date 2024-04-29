@@ -1,9 +1,10 @@
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateSpot = () => {
     const spot = useLoaderData();
     const {_id,description,country, photo, spotName, time, location, visitors,seasonality, cost} = spot;
+    const navigate = useNavigate()
     const handleUpdateSpot =event =>{
         event.preventDefault()
     const form = event.target;
@@ -36,6 +37,7 @@ const UpdateSpot = () => {
     })
     .then(res => res.json())
     .then(data=> {
+      navigate('/mylist')
         toast.success('update success')
         console.log(data)
     })

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AutthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 const PrivetRoute = ({children}) => {
     const {users, loading} = useContext(AuthContext);
     const location = useLocation();

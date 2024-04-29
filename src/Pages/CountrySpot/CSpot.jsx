@@ -1,17 +1,19 @@
+/* eslint-disable react/prop-types */
 import { BiWorld } from "react-icons/bi";
 import { FaRegCircleDot } from "react-icons/fa6";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 const CSpot = ({ spot }) => {
   const {
     _id,
+    // eslint-disable-next-line react/prop-types
     photo,
     spotName,
     location,
     cost,
-    time,
     description,
     seasonality,
     country,

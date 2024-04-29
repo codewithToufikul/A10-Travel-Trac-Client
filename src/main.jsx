@@ -17,12 +17,14 @@ import SpotDetails from './Pages/SpotDetails/SpotDetails';
 import UpdateSpot from './Pages/UpdateSpot/UpdateSpot';
 import CountrySpot from './Pages/CountrySpot/CountrySpot';
 import PrivetRoute from './Pages/PrivetRoute/PrivetRoute';
+import ErrorPage from './Pages/ErrorPage/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
