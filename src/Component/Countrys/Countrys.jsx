@@ -26,7 +26,7 @@ const Countrys = () => {
     >
       <div className="max-w-[1440px] mx-auto">
         <div className="max-w-3xl mx-auto text-center space-y-4 p-10">
-          <h1 className=" dark:text-blue-400 text-5xl font-semibold">
+          <h1 className="text-blue-400 text-5xl font-semibold">
             Chose Your{" "}
             <span className="text-blue-400 font-pacifico font-thin">
               Favorite

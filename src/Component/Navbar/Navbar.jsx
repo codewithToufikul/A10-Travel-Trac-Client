@@ -5,18 +5,20 @@ import { AuthContext } from "../../AuthProvider/AutthProvider";
 import { IoIosLogOut } from "react-icons/io";
 import toast, { Toaster } from "react-hot-toast";
 import { FaSearch } from "react-icons/fa";
+import { Tooltip } from "react-tooltip";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const Navbar = () => {
   const { users, logOutUser } = useContext(AuthContext);
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'light';
+    return localStorage.getItem("theme") || "light";
   });
-  useEffect(()=>{
-    localStorage.setItem('theme', theme)
-    const localTheme = localStorage.getItem('theme')
-    
-    document.querySelector('html').setAttribute('data-theme', localTheme)
-  },[theme])
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
   const handleLogOut = () => {
     logOutUser()
       .then(() => {
@@ -28,11 +30,10 @@ const Navbar = () => {
       });
   };
 
-  const handleTheme = () =>{
-    theme == "light" ? setTheme('dark') : setTheme('light')
+  const handleTheme = () => {
+    theme == "light" ? setTheme("dark") : setTheme("light");
     console.log(theme);
-    
-  }
+  };
 
   const navLink = (
     <>
@@ -122,7 +123,13 @@ const Navbar = () => {
             {navLink}
           </ul>
         </div>
-        <img className=" w-28 md:w-[200px]" src={logo} alt="" />
+        <img
+          className={` ${
+            theme == "dark" ? "bg-slate-700" : ""
+          } rounded-3xl w-28 md:w-[200px]`}
+          src={logo}
+          alt=""
+        />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className=" gap-5 flex items-center px-1">{navLink}</ul>
@@ -130,30 +137,39 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className=" flex items-center gap-16 ">
           <div className="lg:block hidden ">
-          <div className="join ">
-            <input
-              className="input  rounded-full input-bordered join-item"
-              placeholder="Type Place Name"
-            />
-            <button className="btn  join-item bg-transparent border-2 rounded-full text-xl hover:bg-transparent ">
-              <FaSearch />
-            </button>
+            <div className="join ">
+              <input
+                className="input  rounded-full input-bordered join-item"
+                placeholder="Type Place Name"
+              />
+              <button className="btn  join-item bg-transparent border-slate-300 border-2 rounded-full text-xl hover:bg-transparent ">
+                <FaSearch />
+              </button>
+            </div>
           </div>
-          </div>
-          <button className=" w-10 h-10   rounded-full  mr-4 " onClick={handleTheme}>
-            {
-              theme == "light" ? <img
-              className=" w-full h-full"
-              src="https://i.ibb.co/Zd6kxCc/pngtree-dark-mode-icon-light-png-clipart-png-image-3811921-removebg-preview.png"
-            /> : <img
-            className=" bg-gray-300 rounded-full w-full h-full"
-            src="https://i.ibb.co/bdJn1RB/4586694-200-removebg-preview.png"
-          />
-            }
+          <button
+            id="theme-btn"
+            className=" w-10 h-10   rounded-full "
+            onClick={handleTheme}
+          >
+            {theme == "light" ? (
+              <img
+                className=" w-full h-full"
+                src="https://i.ibb.co/Zd6kxCc/pngtree-dark-mode-icon-light-png-clipart-png-image-3811921-removebg-preview.png"
+              />
+            ) : (
+              <p className=" hover:bg-slate-500 rounded-full text-4xl">
+                <MdOutlineDarkMode />
+              </p>
+            )}
           </button>
+          <Tooltip
+            anchorSelect="#theme-btn"
+            content="Change Theme !"
+          />
         </div>
         {users ? (
-          <div className="dropdown z-40 dropdown-hover">
+          <div className=" ml-4 dropdown z-40 dropdown-hover">
             <div
               tabIndex={0}
               role="button"
@@ -182,7 +198,7 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <div className="flex md:gap-4">
+          <div className=" flex md:gap-4">
             <Link
               to="/login"
               className=" text-lg font-semibold btn btn-ghost hover:bg-white hover:border-2 hover:border-blue-400 "
