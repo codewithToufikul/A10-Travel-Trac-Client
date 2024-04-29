@@ -114,7 +114,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className=" flex items-center gap-16 ">
-          <div className="join">
+          <div className="lg:block hidden ">
+          <div className="join ">
             <input
               className="input  rounded-full input-bordered join-item"
               placeholder="Type Place Name"
@@ -122,6 +123,7 @@ const Navbar = () => {
             <button className="btn  join-item bg-transparent border-2 rounded-full text-xl hover:bg-transparent ">
               <FaSearch />
             </button>
+          </div>
           </div>
           <label className=" mr-3 cursor-pointer grid place-items-center">
             <input
