@@ -11,7 +11,9 @@ export const AuthContext = createContext(null)
 
 const AutthProvider = ({children}) => {
     const [users, setUsers] = useState()
+    const [loading, setLoading] = useState(true)
     const creatUser = (email, password)=>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
@@ -23,23 +25,28 @@ const AutthProvider = ({children}) => {
     }
 
     const loginUser = (email, password) =>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const googleLogin = () =>{
+        setLoading(true)
         return signInWithPopup(auth, provider)
 
     }
     const githubLogin = ()=>{
+        setLoading(true)
         return signInWithPopup(auth, gitProvider)
     }
 
     const logOutUser = () =>{
+        setLoading(true)
         return signOut(auth);
     }
 
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, currentUser=>{
             setUsers(currentUser)
+            setLoading(false)
         });
         return()=>{
             unSubscribe();
@@ -52,7 +59,8 @@ const AutthProvider = ({children}) => {
         googleLogin, 
         githubLogin,
         users,
-        logOutUser
+        logOutUser,
+        loading
     }
     return (
         <AuthContext.Provider value={value}>

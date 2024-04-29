@@ -15,6 +15,8 @@ import AutthProvider from './AuthProvider/AutthProvider';
 import MySpotList from './Pages/MySpotList/MySpotList';
 import SpotDetails from './Pages/SpotDetails/SpotDetails';
 import UpdateSpot from './Pages/UpdateSpot/UpdateSpot';
+import CountrySpot from './Pages/CountrySpot/CountrySpot';
+import PrivetRoute from './Pages/PrivetRoute/PrivetRoute';
 
 
 const router = createBrowserRouter([
@@ -42,24 +44,28 @@ const router = createBrowserRouter([
       },
       {
         path: "addspot",
-        element: <AddSpot>
-
-        </AddSpot>
+        element: <PrivetRoute><AddSpot></AddSpot></PrivetRoute>
       },
       {
         path: "/mylist",
-        element: <MySpotList></MySpotList>,
+        element: <PrivetRoute><MySpotList></MySpotList></PrivetRoute>,
         loader: () => fetch('http://localhost:5000/spots'),
       },
       {
         path: "/spotdetails/:id",
-        element: <SpotDetails></SpotDetails>,
+        element: <PrivetRoute><SpotDetails></SpotDetails></PrivetRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/spots/${params.id}`)
       },
       {
         path: "/updatespot/:id",
-        element: <UpdateSpot></UpdateSpot>,
+        element: <PrivetRoute><UpdateSpot></UpdateSpot></PrivetRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/spots/${params.id}`)
+      },
+      {
+        path: "/countryspot/:country_name",
+        element: <CountrySpot></CountrySpot>,
+        loader: ({params})=> fetch(`http://localhost:5000/countrys/${params.country_name}`)
+        
       }
     ]
   },

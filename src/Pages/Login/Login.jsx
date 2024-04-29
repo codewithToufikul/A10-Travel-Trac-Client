@@ -1,12 +1,14 @@
 import { FaGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AutthProvider";
 import { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
     const {loginUser, googleLogin, githubLogin} = useContext(AuthContext);
+    const location = useLocation();
+    const navigete = useNavigate();
     const handleLoginUser = event =>{
         event.preventDefault()
         const form = event.target;
@@ -15,6 +17,7 @@ const Login = () => {
         loginUser(email, password)
         .then(()=>{
           toast.success('Successfully Login!')
+          navigete(location?.state ? location.state : '/')
         })
         .catch(error=>{
           toast.error(error.message)
@@ -25,6 +28,7 @@ const Login = () => {
         googleLogin()
         .then(()=>{
           toast.success('Successfully Login!')
+          navigete(location?.state ? location.state : '/')
         })
         .then(error=>{
           toast.error(error.message)
@@ -35,6 +39,7 @@ const Login = () => {
         githubLogin()
         .then(()=>{
           toast.success('Successfully Login!')
+          navigete(location?.state ? location.state : '/')
         })
         .then(error=>{
           toast.error(error.message)

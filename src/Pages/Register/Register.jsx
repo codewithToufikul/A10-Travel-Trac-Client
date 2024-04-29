@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AutthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -8,6 +8,7 @@ const Register = () => {
   const {creatUser , updateUser} = useContext(AuthContext);
   const [passError, setPassError] = useState('')
   const [show, setShow] = useState(true);
+  const navigete = useNavigate();
   const handleCreateUser = event =>{
     event.preventDefault()
     const form = event.target;
@@ -32,6 +33,7 @@ const Register = () => {
       console.log(result);
       toast.success('Register Success')
       updateUser(name, photo)
+      navigete('/')
       .then(() => {
       }).catch((error) => {
         toast.error(error.message)

@@ -67,7 +67,6 @@ const Countrys = () => {
                     <img
                       className="rounded-2xl h-full w-full"
                       src={country.image}
-                      alt={country.country_name}
                     />
                     <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.3] rounded-2xl"></div>
                   </figure>
@@ -77,7 +76,7 @@ const Countrys = () => {
                     </h2>
                     <p className="text-white">{country.description}</p>
                     <div className="card-actions justify-end">
-                      <Link  className=" btn w-full glass text-blue-400 text-lg">View Spot</Link>
+                      <Link to={`/countryspot/${country.country_name}`} className=" btn w-full glass text-blue-400 text-lg">View Spot</Link>
                     </div>
                   </div>
                 </div>
