@@ -56,20 +56,20 @@ const Register = () => {
               <h1 className="text-center text-4xl font-medium">Please <span className="text-blue-500 font-semibold">Register</span></h1>
               <div className="form-control">
                 <label className="label text-lg">Name</label>
-                <input type="name" name="name" placeholder="Enter Your Name" className="input input-bordered"  />
+                <input required type="name" name="name" placeholder="Enter Your Name" className="input input-bordered"  />
               </div>
               <div className="form-control">
                 <label className="label text-lg">Email</label>
-                <input type="email" name="email" placeholder="Enter Your Email" className="input input-bordered" />
+                <input required type="email" name="email" placeholder="Enter Your Email" className="input input-bordered" />
               </div>
               <div className="form-control">
                 <label className="label text-lg">Photo URL</label>
-                <input type="url" name="photo" placeholder="Photo URL" className="input input-bordered"/> 
+                <input required type="url" name="photo" placeholder="Photo URL" className="input input-bordered"/> 
               </div>
               <div className="form-control">
                 <label className="label text-lg">Password</label>
                 <div className=" relative">
-                <input type={show ? 'password' : 'text'} name="password" placeholder="Password" className=" w-full input input-bordered"/>
+                <input required type={show ? 'password' : 'text'} name="password" placeholder="Password" className=" w-full input input-bordered"/>
                 <p onClick={handlePasswordShow} className={`absolute top-3 right-3 text-2xl ${show ? 'hidden' : ''}`}><FaEye /></p>
                 <p onClick={handlePasswordShow} className={`absolute top-3 right-3 text-2xl ${!show ? 'hidden' : ''}`}><FaEyeSlash /></p>
                 </div>

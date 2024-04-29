@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Spot from "../Spot/Spot";
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import { FaArrowDownShortWide, FaArrowDownWideShort } from "react-icons/fa6";
 
 const AllSpot = () => {
     const [spots, setSpots] = useState([])
@@ -10,8 +11,12 @@ const AllSpot = () => {
     useEffect(()=>{ 
     setSpots(spot)
     },[])
-    const handleAverageCost = () =>{
+    const handleAverageCostdes = () =>{
         const sortSpot = [...spot].sort((a, b)=> a.cost-b.cost)
+        setSpots(sortSpot)
+    }
+    const handleAverageCostAss = () =>{
+        const sortSpot = [...spot].sort((a, b)=> b.cost-a.cost)
         setSpots(sortSpot)
     }
     const handleAll = () =>{
@@ -64,8 +69,11 @@ const AllSpot = () => {
               <li onClick={handleAll}>
                 <a className=" text-lg">All</a>
               </li>
-              <li onClick={handleAverageCost}>
-                <a className=" text-lg">Average Cost</a>
+              <li onClick={handleAverageCostdes}>
+              <a className=" flex items-center gap-1 text-lg">Average Cost <span><FaArrowDownShortWide /></span></a>
+              </li>
+              <li >
+                <a onClick={handleAverageCostAss} className=" flex items-center gap-1 text-lg">Average Cost <span><FaArrowDownWideShort /></span></a>
               </li>
             </ul>
           </div>

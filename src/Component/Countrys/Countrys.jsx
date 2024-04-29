@@ -26,7 +26,7 @@ const Countrys = () => {
     >
       <div className="max-w-[1440px] mx-auto">
         <div className="max-w-3xl mx-auto text-center space-y-4 p-10">
-          <h1 className="text-5xl font-semibold">
+          <h1 className=" dark:text-blue-400 text-5xl font-semibold">
             Chose Your{" "}
             <span className="text-blue-400 font-pacifico font-thin">
               Favorite
@@ -62,8 +62,8 @@ const Countrys = () => {
           >
             {countrys.map((country) => (
               <SwiperSlide key={country._id}>
-                <div className="card rounded-2xl relative">
-                  <figure className="md:h-[500px] h-[300px] relative hover:scale-105 transition-all duration-500">
+                <Link to={`/countryspot/${country.country_name}`} className="card rounded-2xl  relative">
+                  <figure className="md:h-[500px] h-[300px] relative hover:scale-105 transition-all duration-1000">
                     <img
                       className="rounded-2xl h-full w-full"
                       src={country.image}
@@ -71,15 +71,13 @@ const Countrys = () => {
                     <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.3] rounded-2xl"></div>
                   </figure>
                   <div className="card-body bottom-0 absolute z-10">
-                    <h2 className="card-title text-white text-3xl">
+                    <h2 className="card-title text-white text-4xl">
                       {country.country_name}
                     </h2>
                     <p className="text-white">{country.description}</p>
-                    <div className="card-actions justify-end">
-                      <Link to={`/countryspot/${country.country_name}`} className=" btn w-full glass text-blue-400 text-lg">View Spot</Link>
-                    </div>
+                    
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
             <h1 className=" h-10"></h1>

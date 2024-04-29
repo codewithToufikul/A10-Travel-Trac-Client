@@ -4,20 +4,44 @@ import { IoMdTime } from "react-icons/io";
 import { RxUpdate } from "react-icons/rx";
 import { TfiEye } from "react-icons/tfi";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
-const MySpot = ({ spot }) => {
+const MySpot = ({ spot, setSpots, spots }) => {
     // eslint-disable-next-line react/prop-types
     const {_id,photo, spotName, visitors,  location, cost,time} = spot;
-    const handleDelete = () =>{
-      fetch(`http://localhost:5000/spots/${_id}`,{
-        method: 'DELETE'
-      })
-      .then(res=> res.json())
-        .then(data=>{
-          toast.success('successfully deleted')
-          console.log(data);
+    const handleDelete = (_id) =>{
+      console.log(_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result)=>{
+          if(result.isConfirmed){
+            fetch(`http://localhost:5000/spots/${_id}`,{
+              method: 'DELETE'
+            })
+            .then(res=> res.json())
+            .then(data=>{
+              console.log(data);
+              if(data.deletedCount > 0){
+                Swal.fire(
+                  'Deleted!',
+                  'Your Coffee has been deleted.',
+                  'success'
+              )
+              const remaining = spots.filter(spot=> spot._id !== _id);
+              setSpots(remaining)
+              }
+            })
+          }
         })
+ 
+
     }
   return (
     <tr>
@@ -35,7 +59,7 @@ const MySpot = ({ spot }) => {
       </div>
     </td>
     <td>
-    <p className=" justify-center w-[130px] px-3 py-1 border-blue-400 border-[1px] rounded-md text-lg text-blue-500 font-semibold  bg-white flex items-center gap-1"><span className=" text-xl"><IoMdTime /></span> {time}</p>
+    <p className=" justify-center w-[130px] px-3 py-1 border-blue-400 border-[1px] rounded-md text-lg text-blue-500 font-semibold  bg-white dark:text-black flex items-center gap-1"><span className=" text-xl"><IoMdTime /></span> {time}</p>
     </td>
     <td>
     <p className=" flex justify-center items-center gap-1 text-lg"><span className=" text-xl text-blue-600"><TfiEye /> </span><span className=" ">{visitors}</span></p>
@@ -48,7 +72,7 @@ const MySpot = ({ spot }) => {
     <td>
     <div className=" flex gap-2 justify-center ">
                 <Link to={`/updatespot/${_id}`} className=" btn bg-blue-400 text-lg text-white px-4">Update <span><RxUpdate /></span></Link>
-                <button onClick={()=>handleDelete(spot)} className=" btn  bg-red-500 text-lg text-white px-6"> <FaDeleteLeft /></button>
+                <button onClick={()=>handleDelete(_id)} className=" btn  bg-red-500 text-lg text-white px-6"> <FaDeleteLeft /></button>
             </div>
     </td>
     

@@ -1,11 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AutthProvider";
 import MySpot from "../MySpot/MySpot";
 import { Typewriter } from "react-simple-typewriter";
 
 const MySpotList = () => {
-  const spots = useLoaderData();
+  const loadedSpots = useLoaderData();
+  const [spots, setSpots] = useState(loadedSpots);
   const { users } = useContext(AuthContext);
   const email = users?.email;
   const mySpot = spots.filter((spot) => spot.email == email);
@@ -53,7 +54,7 @@ const MySpotList = () => {
     </thead>
     <tbody>
     {mySpot.map((spot) => (
-          <MySpot key={spot._id} spot={spot}></MySpot>
+          <MySpot key={spot._id} spot={spot} spots={spots} setSpots={setSpots}></MySpot>
         ))}
 
     </tbody>
