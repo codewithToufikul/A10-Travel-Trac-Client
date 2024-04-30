@@ -9,7 +9,7 @@ const CountrySpot = () => {
   const country = useLoaderData();
   const { country_name } = country;
   useEffect(() => {
-    fetch("https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots")
+    fetch("https://travel-trac-server.vercel.app/spots")
       .then((res) => res.json())
       .then((data) => {
         setAllSpot(data);

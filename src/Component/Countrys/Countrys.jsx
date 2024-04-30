@@ -10,7 +10,7 @@ const Countrys = () => {
   const [countrys, setCountrys] = useState([]);
 
   useEffect(() => {
-    fetch("https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/countrys")
+    fetch("https://travel-trac-server.vercel.app/countrys")
       .then((res) => res.json())
       .then((data) => {
         setCountrys(data);

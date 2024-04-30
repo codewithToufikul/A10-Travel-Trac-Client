@@ -5,7 +5,6 @@ import { AuthContext } from "../../AuthProvider/AutthProvider";
 import { IoIosLogOut } from "react-icons/io";
 import toast, { Toaster } from "react-hot-toast";
 import { FaSearch } from "react-icons/fa";
-import { Tooltip } from "react-tooltip";
 import { MdOutlineDarkMode } from "react-icons/md";
 
 const Navbar = () => {
@@ -118,15 +117,32 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu space-y-3 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
+            <li><button
+            className={` btn    rounded-full `}
+            onClick={handleTheme}
+          >
+            {theme == "light" ? (
+              <div className=" w-8">
+                <img
+                className=""
+                src="https://i.ibb.co/Zd6kxCc/pngtree-dark-mode-icon-light-png-clipart-png-image-3811921-removebg-preview.png"
+              />
+              </div>
+            ) : (
+              <p className="  hover:bg-slate-500 rounded-full text-2xl md:text-4xl">
+                <MdOutlineDarkMode />
+              </p>
+            )}
+          </button></li>
             {navLink}
           </ul>
         </div>
         <img
           className={` ${
-            theme == "dark" ? "bg-slate-700" : ""
-          } rounded-3xl w-28 md:w-[200px]`}
+            theme == "dark" ? "bg-slate-700 px-2" : ""
+          } rounded-3xl w-[135px] md:w-[200px]`}
           src={logo}
           alt=""
         />
@@ -148,8 +164,7 @@ const Navbar = () => {
             </div>
           </div>
           <button
-            id="theme-btn"
-            className=" md:w-10 md:h-10 w-5 h-5   rounded-full "
+            className={`md:block ${users ? '' : 'hidden'} md:w-10 md:h-10 w-8 h-8   rounded-full `}
             onClick={handleTheme}
           >
             {theme == "light" ? (
@@ -163,14 +178,9 @@ const Navbar = () => {
               </p>
             )}
           </button>
-          <Tooltip
-          className="z-50"
-            anchorSelect="#theme-btn"
-            content="Change Theme !"
-          />
         </div>
         {users ? (
-          <div className=" lg:ml-4 dropdown z-40 dropdown-hover">
+          <div className="ml-5 dropdown z-40 dropdown-hover">
             <div
               tabIndex={0}
               role="button"

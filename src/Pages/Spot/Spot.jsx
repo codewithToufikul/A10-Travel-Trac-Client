@@ -4,9 +4,7 @@ import { TfiEye } from "react-icons/tfi";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
 const Spot = ({spot}) => {
-    // eslint-disable-next-line react/prop-types
     const {_id,photo, spotName, time, location, visitors,seasonality, cost, country} = spot;
   return (
     <Link>

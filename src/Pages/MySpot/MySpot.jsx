@@ -5,9 +5,7 @@ import { TfiEye } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-// eslint-disable-next-line react/prop-types
 const MySpot = ({ spot, setSpots, spots }) => {
-    // eslint-disable-next-line react/prop-types
     const {_id,photo, spotName, visitors,  location, cost,time, country} = spot;
     const handleDelete = (_id) =>{
       console.log(_id);
@@ -21,7 +19,7 @@ const MySpot = ({ spot, setSpots, spots }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result)=>{
           if(result.isConfirmed){
-            fetch(`https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots/${_id}`,{
+            fetch(`https://travel-trac-server.vercel.app/spots/${_id}`,{
               method: 'DELETE'
             })
             .then(res=> res.json())
@@ -33,7 +31,6 @@ const MySpot = ({ spot, setSpots, spots }) => {
                   'Your Coffee has been deleted.',
                   'success'
               )
-              // eslint-disable-next-line react/prop-types
               const remaining = spots.filter(spot=> spot._id !== _id);
               setSpots(remaining)
               }

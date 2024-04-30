@@ -28,7 +28,7 @@ const UpdateSpot = () => {
       visitors: visitors,
       photo: photo,
     }
-    fetch(`https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots/${_id}`,{
+    fetch(`https://travel-trac-server.vercel.app/spots/${_id}`,{
         method: "PUT",
         headers: {
             'content-type': 'application/json'
@@ -99,7 +99,6 @@ const UpdateSpot = () => {
               </select>
             </div>
           </div>
-          {/* form supplier row */}
           <div className="md:flex md:mb-8">
             <div className="form-control md:w-1/2">
               <label className="label">
@@ -128,7 +127,6 @@ const UpdateSpot = () => {
               </select>
             </div>
           </div>
-          {/* form category and details row */}
           <div className="md:flex md:mb-8">
             <div className="form-control md:w-1/2">
               <label className="label">

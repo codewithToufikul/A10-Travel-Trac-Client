@@ -34,7 +34,7 @@ const AddSpot = () => {
 
     }
 
-    fetch('https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots',{
+    fetch('https://travel-trac-server.vercel.app/spots',{
       method: 'POST',
       headers: {
         'content-type': 'application/json'

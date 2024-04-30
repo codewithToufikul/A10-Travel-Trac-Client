@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots'),
+        loader: () => fetch('https://travel-trac-server.vercel.app/spots'),
       },
       {
         path: "/login",
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/allspot",
         element: <AllSpot></AllSpot>,
-        loader: () => fetch('https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots'),
+        loader: () => fetch('https://travel-trac-server.vercel.app/spots'),
       },
       {
         path: "addspot",
@@ -51,22 +51,22 @@ const router = createBrowserRouter([
       {
         path: "/mylist",
         element: <PrivetRoute><MySpotList></MySpotList></PrivetRoute>,
-        loader: () => fetch('https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots'),
+        loader: () => fetch('https://travel-trac-server.vercel.app/spots'),
       },
       {
         path: "/spotdetails/:id",
         element: <PrivetRoute><SpotDetails></SpotDetails></PrivetRoute>,
-        loader: ({params}) => fetch(`https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots/${params.id}`)
+        loader: ({params}) => fetch(`https://travel-trac-server.vercel.app/spots/${params.id}`)
       },
       {
         path: "/updatespot/:id",
         element: <PrivetRoute><UpdateSpot></UpdateSpot></PrivetRoute>,
-        loader: ({params}) => fetch(`https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots/${params.id}`)
+        loader: ({params}) => fetch(`https://travel-trac-server.vercel.app/spots/${params.id}`)
       },
       {
         path: "/countryspot/:country_name",
         element: <CountrySpot></CountrySpot>,
-        loader: ({params})=> fetch(`https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/countrys/${params.country_name}`)
+        loader: ({params})=> fetch(`https://travel-trac-server.vercel.app/countrys/${params.country_name}`)
         
       }
     ]
