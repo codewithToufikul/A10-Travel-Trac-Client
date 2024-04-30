@@ -164,6 +164,7 @@ const Navbar = () => {
             )}
           </button>
           <Tooltip
+          className="z-50"
             anchorSelect="#theme-btn"
             content="Change Theme !"
           />
