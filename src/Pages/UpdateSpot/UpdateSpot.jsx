@@ -28,7 +28,7 @@ const UpdateSpot = () => {
       visitors: visitors,
       photo: photo,
     }
-    fetch(`http://localhost:5000/spots/${_id}`,{
+    fetch(`https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots/${_id}`,{
         method: "PUT",
         headers: {
             'content-type': 'application/json'

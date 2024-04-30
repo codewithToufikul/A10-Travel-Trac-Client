@@ -21,7 +21,7 @@ const MySpot = ({ spot, setSpots, spots }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result)=>{
           if(result.isConfirmed){
-            fetch(`http://localhost:5000/spots/${_id}`,{
+            fetch(`https://travel-trac-server-e5royj9j5-toufikul-islams-projects-3e3e85a8.vercel.app/spots/${_id}`,{
               method: 'DELETE'
             })
             .then(res=> res.json())
