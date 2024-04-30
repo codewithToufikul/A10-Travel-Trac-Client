@@ -22,7 +22,7 @@ const MySpotList = () => {
         <div className="hero-overlay bg-opacity-40"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-[600px]">
-            <h1 className="mb-5 text-5xl font-bold leading-[60px]">Exploring the world, one <br /> <span className=" text-blue-400">
+            <h1 className="mb-5 text-3xl lg:text-5xl font-bold lg:leading-[60px]">Exploring the world, one <br /> <span className=" text-blue-400">
             <Typewriter
             words={['Adventure',]}
             loop={1000000000000}
@@ -38,18 +38,18 @@ const MySpotList = () => {
         </div>
       </div>
       <div className=" max-w-[1440px] mx-auto mt-12 space-y-8">
-        <h1 className=" text-4xl text-center  my-16 font-"><span className=" underline underline-offset-8">My Added </span><span className=" text-blue-400 font-pacifico">Tourist Spot</span></h1>
+        <h1 className=" text-3xl md:text-4xl text-center  my-16 font-"><span className=" underline underline-offset-8">My Added </span><span className=" text-blue-400 font-pacifico">Tourist Spot</span></h1>
         <div className="overflow-x-auto">
-  <table className="table">
+  <table className="table ">
     {/* head */}
     <thead>
       <tr>
-        <th className=" text-2xl ">Spot Name</th>
-        <th className=" text-2xl ">Travel Time</th>
-        <th className=" text-2xl text-center">Visitors</th>
-        <th className=" text-2xl text-center">Average Cost</th>
+        <th className=" text-base lg:text-2xl ">Spot Name</th>
+        <th className="text-base lg:text-2xl">Travel Time</th>
+        <th className=" text-base lg:text-2xl text-center">Visitors</th>
+        <th className=" text-base lg:text-2xl text-center">Average Cost</th>
        
-        <th className=" text-2xl text-center">Action</th>
+        <th className=" text-base lg:text-2xl text-center">Action</th>
       </tr>
     </thead>
     <tbody>

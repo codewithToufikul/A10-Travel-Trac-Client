@@ -4,6 +4,7 @@ import Features from "../Feauture/Features";
 import TouristSpots from "../TouristSpots/TouristSpots";
 import Countrys from "../Countrys/Countrys";
 import PopularCategory from "../PopularCategory/PopularCategory";
+import TravelTips from "../TravelTips/TravelTips";
 
 const Home = () => {
     const spots = useLoaderData()
@@ -24,6 +25,9 @@ const Home = () => {
             </div>
             <div>
             <Countrys></Countrys>
+            </div>
+            <div className=" mt-12">
+                <TravelTips></TravelTips>
             </div>
         </div>
     );

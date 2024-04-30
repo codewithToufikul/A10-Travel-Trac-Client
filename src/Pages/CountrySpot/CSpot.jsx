@@ -35,6 +35,7 @@ const CSpot = ({ spot }) => {
                   <HiOutlineLocationMarker />{" "}
                 </span>
                 {location}
+                <span>{country}</span>
               </p>
               <p className=" flex items-center gap-1 text-base">
                 <span className=" text-xl text-blue-600">

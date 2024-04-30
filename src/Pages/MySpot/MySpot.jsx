@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
 import { RxUpdate } from "react-icons/rx";
@@ -9,7 +8,7 @@ import Swal from "sweetalert2";
 // eslint-disable-next-line react/prop-types
 const MySpot = ({ spot, setSpots, spots }) => {
     // eslint-disable-next-line react/prop-types
-    const {_id,photo, spotName, visitors,  location, cost,time} = spot;
+    const {_id,photo, spotName, visitors,  location, cost,time, country} = spot;
     const handleDelete = (_id) =>{
       console.log(_id);
         Swal.fire({
@@ -34,6 +33,7 @@ const MySpot = ({ spot, setSpots, spots }) => {
                   'Your Coffee has been deleted.',
                   'success'
               )
+              // eslint-disable-next-line react/prop-types
               const remaining = spots.filter(spot=> spot._id !== _id);
               setSpots(remaining)
               }
@@ -47,32 +47,32 @@ const MySpot = ({ spot, setSpots, spots }) => {
     <tr>
     <td>
       <div className="flex  items-center gap-3">
-        <div className="avatar">
+        <div className="avatar lg:block hidden">
           <div className="mask mask-squircle w-16 h-16">
             <img src={photo} />
           </div>
         </div>
         <div>
-          <div className="font-bold text-lg">{spotName}</div>
-          <div className="text-sm opacity-50">{location}</div>
+          <div className="lg:font-bold lg:text-lg ">{spotName}</div>
+          <p className="text-sm opacity-50 lg:block hidden">{location} <span>{country}</span>  </p>
         </div>
       </div>
     </td>
     <td>
-    <p className=" justify-center w-[130px] px-3 py-1 border-blue-400 border-[1px] rounded-md text-lg text-blue-500 font-semibold  bg-white dark:text-black flex items-center gap-1"><span className=" text-xl"><IoMdTime /></span> {time}</p>
+    <p className=" justify-center lg:w-[130px] lg:px-3 py-1 border-blue-400 border-[1px] rounded-md lg:text-lg text-blue-500 font-semibold  bg-white dark:text-black flex items-center gap-1"><span className=" text-xl"><IoMdTime /></span> {time}</p>
     </td>
     <td>
-    <p className=" flex justify-center items-center gap-1 text-lg"><span className=" text-xl text-blue-600"><TfiEye /> </span><span className=" ">{visitors}</span></p>
+    <p className=" flex justify-center items-center gap-1 lg:text-lg"><span className=" lg:text-xl text-blue-600"><TfiEye /> </span><span className=" ">{visitors}</span></p>
     </td>
     <td>
     <div className=" justify-center flex items-center gap-2">
-            <h2 className="  text-2xl font-semibold">${cost}</h2>
+            <h2 className=" text-xl lg:text-2xl font-semibold">${cost}</h2>
             </div>
     </td>
     <td>
     <div className=" flex gap-2 justify-center ">
-                <Link to={`/updatespot/${_id}`} className=" btn bg-blue-400 text-lg text-white px-4">Update <span><RxUpdate /></span></Link>
-                <button onClick={()=>handleDelete(_id)} className=" btn  bg-red-500 text-lg text-white px-6"> <FaDeleteLeft /></button>
+                <Link to={`/updatespot/${_id}`} className=" btn bg-blue-400 text-lg text-white  px-4"><span className="lg:block hidden">Update</span> <span><RxUpdate /></span></Link>
+                <button onClick={()=>handleDelete(_id)} className=" btn  bg-red-500 text-lg text-white lg:px-6"> <FaDeleteLeft /></button>
             </div>
     </td>
     

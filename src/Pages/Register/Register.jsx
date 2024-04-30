@@ -51,7 +51,7 @@ const Register = () => {
   
     return (
         <div className=" max-w-[1440px] mx-auto">
-              <div className=" w-[800px] rounded-xl bg-gray-100 m-auto  p-10 lg:mt-20">
+              <div className="max-w-[800px] rounded-xl bg-gray-100 m-auto  p-10 lg:mt-20">
             <form onSubmit={handleCreateUser} className=" ">
               <h1 className="text-center text-4xl font-medium">Please <span className="text-blue-500 font-semibold">Register</span></h1>
               <div className="form-control">

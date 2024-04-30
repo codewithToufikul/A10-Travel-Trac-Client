@@ -45,7 +45,7 @@ const UpdateSpot = () => {
     return (
         <div className=" max-w-[1440px] mx-auto">
             <div className="bg-green-50 lg:px-24 px-8 py-16 rounded-2xl">
-        <h2 className="text-4xl font-extrabold text-center mb-5">
+        <h2 className="text-2xl md:text-4xl font-extrabold text-center mb-5">
           Update Your<span className=" text-blue-400">Tourist</span> Spot
         </h2>
         <form onSubmit={handleUpdateSpot}>

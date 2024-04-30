@@ -97,7 +97,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar sticky top-0 z-50 justify-between bg-base-100 max-w-[1440px] mx-auto py-4">
+    <div className="navbar mt-0 sticky top-0 z-50 justify-between bg-base-100 max-w-[1440px] mx-auto py-4">
       <div className="navbar-start md:w-[20%]">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -149,7 +149,7 @@ const Navbar = () => {
           </div>
           <button
             id="theme-btn"
-            className=" w-10 h-10   rounded-full "
+            className=" md:w-10 md:h-10 w-5 h-5   rounded-full "
             onClick={handleTheme}
           >
             {theme == "light" ? (
@@ -158,7 +158,7 @@ const Navbar = () => {
                 src="https://i.ibb.co/Zd6kxCc/pngtree-dark-mode-icon-light-png-clipart-png-image-3811921-removebg-preview.png"
               />
             ) : (
-              <p className=" hover:bg-slate-500 rounded-full text-4xl">
+              <p className=" w-full h-full hover:bg-slate-500 rounded-full text-2xl md:text-4xl">
                 <MdOutlineDarkMode />
               </p>
             )}
@@ -170,7 +170,7 @@ const Navbar = () => {
           />
         </div>
         {users ? (
-          <div className=" ml-4 dropdown z-40 dropdown-hover">
+          <div className=" lg:ml-4 dropdown z-40 dropdown-hover">
             <div
               tabIndex={0}
               role="button"

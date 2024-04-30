@@ -4,7 +4,7 @@ import { TfiEye } from "react-icons/tfi";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { Link } from "react-router-dom";
 const HomeSpot = ({spot}) => {
-    const {_id,photo, spotName, time, location, visitors,seasonality, cost} = spot;
+    const {_id,photo, spotName, time, location, visitors,seasonality, cost, country} = spot;
     return (
         <div>
             <Link>
@@ -21,7 +21,7 @@ const HomeSpot = ({spot}) => {
 
         <h2 className="card-title text-3xl mt-4">{spotName}</h2>
         <div className=" flex mb-3">
-        <p className=" flex items-center gap-1 text-base"><span className=" text-lg text-blue-600"><HiOutlineLocationMarker /> </span>{location}</p>
+        <p className=" flex items-center gap-1 text-base"><span className=" text-lg text-blue-600"><HiOutlineLocationMarker /> </span>{location} <span>{country}</span></p>
         <p className=" flex items-center gap-1 text-base"><span className=" text-xl text-blue-600"><TiWeatherPartlySunny /></span><span className=" text-yellow-500  text-lg font-bold">{seasonality}</span></p>
         </div>
         <p className=" flex items-center gap-1 text-base"><span className=" text-xl text-blue-600"><TfiEye /> </span><span className=" text-red-500 font-bold">{visitors}</span>visitors per year</p>

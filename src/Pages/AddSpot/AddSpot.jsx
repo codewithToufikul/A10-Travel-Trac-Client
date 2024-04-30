@@ -51,7 +51,7 @@ const AddSpot = () => {
     return (
     <div className="max-w-[1440px] mx-auto">
       <div className="bg-blue-50 lg:px-24 px-8 py-16 rounded-2xl">
-        <h2 className="text-4xl font-extrabold text-center mb-5">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-5">
           Add a <span className=" text-blue-400">Tourist</span> Spot
         </h2>
         <form onSubmit={handleAddTourist}>
@@ -98,7 +98,7 @@ const AddSpot = () => {
                   type="text"
                   name="location"
                   required
-                  placeholder="location"
+                  placeholder="Ex: (sundarban,) make sure last one comma(,)"
                   className="input input-bordered w-full"
                 />
               </label>

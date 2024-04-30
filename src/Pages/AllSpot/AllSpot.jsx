@@ -34,7 +34,7 @@ const AllSpot = () => {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content  text-center text-neutral-content">
           <div className="max-w-xl">
-            <h1 className="mb-5 text-6xl  font-bold">
+            <h1 className="mb-5 text-4xl lg:text-6xl  font-bold">
               Choose Your Perfect{" "}
               <span className=" text-blue-400">
 
@@ -54,10 +54,10 @@ const AllSpot = () => {
       </div>
       <div className="max-w-[1440px] mx-auto mt-12">
         <div className=" mb-10">
-            <h1 className=" text-5xl  text-center font-pacifico">Tourist <span className="text-blue-300">Spot</span></h1>
+            <h1 className=" text-4xl md:text-5xl  text-center font-pacifico">Tourist <span className="text-blue-300">Spot</span></h1>
         </div>
         <div className=" flex justify-between items-center px-4">
-          <h1 className=" text-4xl">{spots.length} Tour Spot found</h1>
+          <h1 className=" text-2xl md:text-4xl">{spots.length} Tour Spot found</h1>
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className=" text-lg hover:text-black hover:bg-white btn-outline flex items-center gap-2  m-1">
               Sort By <span><RiArrowUpDownLine /></span>
@@ -79,7 +79,7 @@ const AllSpot = () => {
           </div>
         </div>
         <div className="divider"></div> 
-        <div className=" grid lg: grid-cols-3 gap-10 mx-5">
+        <div className=" grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-10 mx-5">
             {
                 spots.length > 0 ? spots.map(spot=> <Spot key={spot.li_id} spot={spot}></Spot>) : <h1 className=" text-5xl text-center text-red-400">No Spot For Tour !</h1>
             }
